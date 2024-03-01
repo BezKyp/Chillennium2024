@@ -1,0 +1,4 @@
+repository "Chillennium2024_TeamCharlennium@bezkyp@cloud"
+  path "/"
+    br "/main"
+    co "/main"
