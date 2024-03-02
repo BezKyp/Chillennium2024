@@ -4,8 +4,9 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 
 
-public class PlayerMovement : MonoBehaviour
+public class PlayerController : MonoBehaviour
 {
+    
     private PlayerInput playerInput;
     private Rigidbody2D rb;
 
@@ -27,18 +28,18 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        var horizontal = Mathf.RoundToInt(playerInput.Player.Move.ReadValue<Vector2>().x);
-        var velocityX = speed * horizontal;
-        rb.velocity = new Vector2(velocityX, rb.velocity.y);
+        //var horizontal = Mathf.RoundToInt(playerInput.Player.Move.ReadValue<Vector2>().x);
+        //var velocityX = speed * horizontal;
+        //rb.velocity = new Vector2(velocityX, rb.velocity.y);
     }
 
     private void OnEnable()
     {
-        playerInput.Player.Enable();
+        //playerInput.Player.Enable();
     }
 
     private void OnDisable()
     {
-        playerInput.Player.Disable();
+        //playerInput.Player.Disable();
     }
 }
