@@ -26,7 +26,7 @@ public class CounterVersion : MonoBehaviour
     {
         if(state == 0)
         {
-            animator.SetBool("SlideOut", true);
+            animator.SetTrigger("SlideOut");
             meatButton.SetActive(false);
             state = 1;
         }
@@ -38,20 +38,14 @@ public class CounterVersion : MonoBehaviour
     {
         if (state == 0)
         {
-            animator.SetBool("SlideInFromRight", true);
-            animator.SetBool("SlideOutLeft", false);
-            animator.SetBool("SlideInFromLeft", false);
-            animator.SetBool("SlideOutRight", false);
+            animator.SetTrigger("MiddleFromRight");
+            //StartCoroutine(WaitAndReset());
             sideButton.SetActive(true);
             //state = 1;
         }
         else if (state == 1)
         {
-            animator.SetBool("SlideOutLeft", true);
-            //this.transform.SetPositionAndRotation(this.transform.GetLocalPositionAndRotation(), this.transform.rotation);
-            animator.SetBool("SlideInFromRight", false);
-            animator.SetBool("SlideInFromLeft", false);
-            animator.SetBool("SlideOutRight", false);
+            animator.SetTrigger("ToLeft");
             sideButton.SetActive(false);
             state = 2;
         }
@@ -63,19 +57,14 @@ public class CounterVersion : MonoBehaviour
     {
         if (state == 1)
         {
-            animator.SetBool("SlideInFromRight", true);
-            animator.SetBool("SlideOutLeft", false);
-            animator.SetBool("SlideOutRight", false);
-            animator.SetBool("SlideInFromLeft", false);
+            animator.SetTrigger("MiddleFromRight");
+            //StartCoroutine(WaitAndReset());
             treatButton.SetActive(true);
             //state = 2;
         }
         else if (state == 2)
         {
-            animator.SetBool("SlideOutLeft", true);
-            animator.SetBool("SlideInFromRight", false);
-            animator.SetBool("SlideOutRight", false);
-            animator.SetBool("SlideInFromLeft", false);
+            animator.SetTrigger("ToLeft");
             treatButton.SetActive(false);
             state = 3;
         }
@@ -86,8 +75,8 @@ public class CounterVersion : MonoBehaviour
     {
         if (state == 2)
         {
-            animator.SetBool("SlideIn", true);
-            animator.SetBool("SlideOut", false);
+            animator.SetTrigger("SlideIn");
+            //StartCoroutine(WaitAndReset());
             drinkButton.SetActive(true);
             //state = 3;
         }
@@ -98,12 +87,11 @@ public class CounterVersion : MonoBehaviour
     {
         if (state == 1)
         {
-            animator.SetBool("SlideIn", true);
-            animator.SetBool("SlideOut", false);
+            animator.SetTrigger("SlideIn");
+
             meatButton.SetActive(true);
             state = 0;
         }
-        animator.SetBool("SlideIn", false);
 
     }
 
@@ -111,17 +99,16 @@ public class CounterVersion : MonoBehaviour
     {
         if (state == 1)
         {
-            animator.SetBool("SlideOutRight", true);
-            animator.SetBool("SlideInFromLeft", false);
+            animator.SetTrigger("ToRight");
             sideButton.SetActive(false);
-            state = 0;
+            //state = 0;
         }
         else if (state == 2)
         {
-            animator.SetBool("SlideInFromLeft", true);
-            animator.SetBool("SlideOutRight", false);
+            animator.SetTrigger("MiddleFromLeft");
+            StartCoroutine(WaitAndReset());
             sideButton.SetActive(true);
-            //state = 1;
+            state = 1;
         }
 
     }
@@ -130,17 +117,16 @@ public class CounterVersion : MonoBehaviour
     {
         if (state == 3)
         {
-            animator.SetBool("SlideInFromLeft", true);
-            animator.SetBool("SlideOutRight", false);
+            animator.SetTrigger("ToRight");
+            //StartCoroutine(WaitAndReset());
             treatButton.SetActive(true);
-            //state = 2;
+            state = 2;
         }
         else if (state == 2)
         {
-            animator.SetBool("SlideOutRight", true);
-            animator.SetBool("SlideInFromLeft", false);
+            animator.SetTrigger("MiddleFromLeft");
             treatButton.SetActive(false);
-            state = 1;
+            //state = 1;
         }
 
     }
@@ -149,12 +135,17 @@ public class CounterVersion : MonoBehaviour
     {
         if (state == 3)
         {
-            animator.SetBool("SlideOut", true);
-            animator.SetBool("SlideIn", false);
+            animator.SetTrigger("SlideOut");
             drinkButton.SetActive(false);
-            state = 2;
+            //state = 2;
         }
 
+    }
+
+    IEnumerator WaitAndReset()
+    {
+        yield return new WaitForSeconds(1);
+        this.transform.SetPositionAndRotation(new Vector3(0f, -2.1f, 0), this.transform.rotation);
     }
 
 }
