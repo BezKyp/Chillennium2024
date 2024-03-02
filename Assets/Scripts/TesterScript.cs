@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -16,6 +17,7 @@ public class TesterScript : MonoBehaviour
             if (Physics.Raycast(ray, out hit))
             {
                 //DoSomething
+                Console.WriteLine("press");
                 hex.SetActive(true);
 
               }
