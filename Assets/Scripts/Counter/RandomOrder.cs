@@ -6,22 +6,37 @@ using UnityEngine;
 public class RandomOrder : MonoBehaviour
 {
     //meat, side, dessert, drink
-    int[] order;
-    public int NumMeat;
-    public int NumSide;
-    public int NumDes;
-    public int NumDrink;
+    GameObject[] order;
+    public Transform meat;
+    public Transform side;
+    public Transform treat;
+    public Transform drink;
 
-    int[] OrderIndices()
+    public void OrderIndices()
     {
-        order = new int[4];
+        order = new GameObject[4];
 
-        order[0] = UnityEngine.Random.Range(0, NumMeat);
-        order[1] = UnityEngine.Random.Range(0, NumSide);
-        order[2] = UnityEngine.Random.Range(0, NumDes);
-        order[3] = UnityEngine.Random.Range(0, NumDrink);
+        order[0] = meat.GetChild(UnityEngine.Random.Range(0, 3)).gameObject;
+        order[1] = side.GetChild(UnityEngine.Random.Range(0, 3)).gameObject;
+        order[2] = treat.GetChild(UnityEngine.Random.Range(0, 3)).gameObject;
+        order[3] = drink.gameObject; //drink.GetChild(UnityEngine.Random.Range(0, 3)).gameObject;
 
-        return order;
+        Debug.Log(order);
+
+        StartCoroutine(Wait());
     }
+
+    IEnumerator Wait()
+    {
+        for (int i = 0; i < 3; i++)
+        {
+            Debug.Log("made it");
+            order[i].SetActive(true);
+            yield return new WaitForSeconds(1.2f);
+            order[i].SetActive(false);
+            yield return new WaitForSeconds(0.25f);
+        }
+    }
+
 
 }

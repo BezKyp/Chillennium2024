@@ -19,7 +19,7 @@ public class CounterVersion : MonoBehaviour
 
     private void Update()
     {
-        Debug.Log(state);
+        //Debug.Log(state);
     }
 
     public void MoveLeftMeat()
