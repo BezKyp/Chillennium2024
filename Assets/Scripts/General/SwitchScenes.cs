@@ -14,4 +14,8 @@ public class SwitchScenes : MonoBehaviour
     {
         SceneManager.LoadScene("BackRoom");
     }
+
+    public void SwitchToKitchen() {
+        SceneManager.LoadScene("Kitchen");
+    }
 }
