@@ -4,15 +4,23 @@ using UnityEngine;
 
 public class FoodSelection : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public int itemNum;
+    public void RemoveItem()
     {
-        
+        //if itemNum == 0, dont add to plate
+
+        //else setActive(false) and decrement itemNum
     }
 
-    // Update is called once per frame
-    void Update()
+    public void DispenseDrink()
     {
+        //remove cup from tray
         
+        //add cup in machine
+
+        //show pouring visual
+
+        //give cup back to tray
     }
+
 }
