@@ -16,7 +16,10 @@ public class RandomOrder : MonoBehaviour
     {
         order = new int[4];
 
-        //order[0] = Unity.Mathematics.Random() % numMeat;
+        order[0] = UnityEngine.Random.Range(0, NumMeat);
+        order[1] = UnityEngine.Random.Range(0, NumSide);
+        order[2] = UnityEngine.Random.Range(0, NumDes);
+        order[3] = UnityEngine.Random.Range(0, NumDrink);
 
         return order;
     }
