@@ -38,6 +38,7 @@ public class GeckoTextScript : MonoBehaviour
         else
         {
             textBox.text = foodResponse[Random.Range(0, 3)];
+            var_script.setBoxFalse();
         }
 
     }

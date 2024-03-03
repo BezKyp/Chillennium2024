@@ -835,7 +835,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d8788e7e435d1e449d75e4b59d563c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hasBox: 0
+  animplayer: {fileID: 9100000, guid: e4fcd76664350064aa7f917825dfcdaf, type: 2}
+  animplayerBox: {fileID: 9100000, guid: 92d1a32cf042edc4d995329a130780ad, type: 2}
+  player: {fileID: 5617570}
 --- !u!4 &225433710
 Transform:
   m_ObjectHideFlags: 0
@@ -934,6 +936,7 @@ GameObject:
   - component: {fileID: 249061846}
   - component: {fileID: 249061850}
   - component: {fileID: 249061851}
+  - component: {fileID: 249061852}
   m_Layer: 5
   m_Name: GeckoButton
   m_TagString: Untagged
@@ -1032,6 +1035,18 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
         m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 249061852}
+        m_TargetAssemblyTypeName: StressLevel, Assembly-CSharp
+        m_MethodName: changeAnim
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -1139,6 +1154,21 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+--- !u!114 &249061852
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 249061844}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d8788e7e435d1e449d75e4b59d563c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animplayer: {fileID: 9100000, guid: e4fcd76664350064aa7f917825dfcdaf, type: 2}
+  animplayerBox: {fileID: 9100000, guid: 92d1a32cf042edc4d995329a130780ad, type: 2}
+  player: {fileID: 5617570}
 --- !u!1 &308254401
 GameObject:
   m_ObjectHideFlags: 0
