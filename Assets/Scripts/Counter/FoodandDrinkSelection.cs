@@ -12,7 +12,7 @@ public class FoodSelection : MonoBehaviour
     private static bool complete;
     GameObject[] items;
     GameObject trayItem;
-    GameObject[] trayItems;
+    private static GameObject[] trayItems;
     public GameObject left;
     public GameObject up;
     public GameObject down;
@@ -40,7 +40,6 @@ public class FoodSelection : MonoBehaviour
             switch(loc)
             {
                 case 0:
-                    Debug.Log(name);
                     trayItem = down.transform.Find(name).gameObject;
                     break;
                 case 1:
@@ -51,10 +50,11 @@ public class FoodSelection : MonoBehaviour
                     break;
             }
             trayItems[loc] = trayItem;
+            //Debug.Log(trayItems[loc].ToString());
             trayItem.SetActive(true);
 
             loc++;
-            if (loc == 3 && drink_dispensed) GiveTray();
+            if (loc == 3 /*&& drink_dispensed*/) GiveTray();
         }
 
     }
@@ -92,17 +92,22 @@ public class FoodSelection : MonoBehaviour
     {
         drink_dispensed = false;
         loc = 0;
-        for(int i = 0; i < trayItems.Length; i++)
-        {
-            trayItems[i].SetActive(false);
-        }
-
-        down.GetComponentInParent<Transform>().gameObject.SetActive(false);
+        
         StartCoroutine(Wait());
     }
 
     IEnumerator Wait()
     {
+        yield return new WaitForSeconds(2f);
+
+        for (int i = 0; i < 3; i++)
+        {
+            Debug.Log(trayItems[i].ToString());
+            trayItems[i].SetActive(false);
+        }
+
+        down.GetComponentInParent<Transform>().gameObject.SetActive(false);
+
         NPCArrivalTiming.chosenNPC.GetComponent<Animator>().SetTrigger("leave");
         yield return new WaitForSeconds(3f);
         NPCArrivalTiming.SummonNPC();
