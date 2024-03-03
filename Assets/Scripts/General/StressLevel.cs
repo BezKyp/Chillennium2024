@@ -8,8 +8,10 @@ public class StressLevel : MonoBehaviour
 
     static int stressLevel;
     static int customerLevel;
-    
+
+    public bool gameStart = false;
     public bool hasBox = false;
+
 
 
     void Start()
