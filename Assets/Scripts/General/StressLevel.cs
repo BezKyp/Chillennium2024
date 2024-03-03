@@ -8,8 +8,8 @@ public class StressLevel : MonoBehaviour
 {
     // Start is called before the first frame update
 
-    static int stressLevel = 20;
-    static int customerLevel = 50;
+    public static int stressLevel = 20;
+    public static int customerLevel = 50;
     int h_max = 128;
     int w_max = 10;
 
@@ -25,6 +25,8 @@ public class StressLevel : MonoBehaviour
     public Image customerBar;
 
     public GameObject player;
+
+    public AudioClip sip;
 
 
     public void setBoxTrue()
@@ -46,7 +48,7 @@ public class StressLevel : MonoBehaviour
     public void setBoxDes() { lastBox = 2; }
     public void setBoxSoda() { lastBox = 3; }
 
-    public void drinkWater() { stressLevel -= 5; }
+    public void drinkWater() { stressLevel -= 5;}
     public void lookPoster() { stressLevel -= 5; }
     public void sit() { stressLevel -= 5; }
 
