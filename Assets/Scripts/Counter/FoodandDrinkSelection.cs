@@ -15,6 +15,7 @@ public class FoodSelection : MonoBehaviour
     private static GameObject[] trayItems;
     private static GameObject drinks;
     private static GameObject drinks_child;
+    public GameObject up_left;
     public GameObject left;
     public GameObject up;
     public GameObject down;
@@ -24,7 +25,7 @@ public class FoodSelection : MonoBehaviour
     {
         items = new GameObject[itemNum];
         items_remaining = itemNum;
-        trayItems = new GameObject[3];
+        trayItems = new GameObject[4];
         for(int i = 0; i < itemNum; i++)
         {
             items[i] = this.transform.GetChild(i).gameObject;
@@ -62,11 +63,10 @@ public class FoodSelection : MonoBehaviour
 
     public void DispenseDrink(string drink)
     {
-        //remove cup from tray
-
         //add cup in machine
         drinks = GameObject.Find("drinksBase");
         drinks_child = drinks.transform.Find(drink).gameObject;
+        GameObject.Find("cup_end").SetActive(false);
         drinks_child.SetActive(true);
 
         //give cup back to tray
@@ -91,6 +91,23 @@ public class FoodSelection : MonoBehaviour
     {
         yield return new WaitForSeconds(1);
         drinks_child.SetActive(false);
+        string drink_of_choice = "";
+        switch(drinks_child.name)
+        {
+            case "drinks_filled_lemonade":
+                drink_of_choice = "cup_side_filled_lemonade";
+                break;
+            case "drinks_filled_rootbeer":
+                drink_of_choice = "cup_side_filled_sweet_tea";
+                break;
+            case "drinks_filled_sweet_tea":
+                drink_of_choice = "cup_side_rootbeer";
+                break;
+        }
+        up_left.transform.Find(drink_of_choice).gameObject.SetActive(true);
+        trayItems[3] = up_left.transform.Find(drink_of_choice).gameObject;
+
+
 
         drink_dispensed = true;
         if (loc == 3 && drink_dispensed) GiveTray();
@@ -100,7 +117,7 @@ public class FoodSelection : MonoBehaviour
     {
         yield return new WaitForSeconds(2f);
 
-        for (int i = 0; i < 3; i++)
+        for (int i = 0; i < 4; i++)
         {
             Debug.Log(trayItems[i].ToString());
             trayItems[i].SetActive(false);
@@ -108,6 +125,7 @@ public class FoodSelection : MonoBehaviour
         trayItems = new GameObject[3];
 
         down.GetComponentInParent<SpriteRenderer>().enabled = false;
+        GameObject.Find("cup_end").SetActive(true);
 
         NPCArrivalTiming.chosenNPC.GetComponent<Animator>().SetTrigger("leave");
         yield return new WaitForSeconds(3f);
