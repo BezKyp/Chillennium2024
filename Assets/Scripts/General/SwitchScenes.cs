@@ -18,4 +18,15 @@ public class SwitchScenes : MonoBehaviour
     public void SwitchToKitchen() {
         SceneManager.LoadScene("Kitchen");
     }
+
+    public void SwitchToStart()
+    {
+        SceneManager.LoadScene("StartMenu");
+    }
+
+    public void QuitGame()
+    {
+        Application.Quit();
+    }
+
 }
