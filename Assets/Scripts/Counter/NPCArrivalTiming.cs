@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class NPCArrivalTiming : MonoBehaviour
 {
-    public static int numNPCs = 1;
+    public static int numNPCs = 4;
     public static GameObject NPCs;
     private static int[] usedNums;
     private static int curr_ind = 0;
@@ -39,7 +39,6 @@ public class NPCArrivalTiming : MonoBehaviour
             GameObject customers = GameObject.Find("Customers");
             for(int i = 0; i < numNPCs; i++)
             {
-                Debug.Log("in reset loop");
                 customers.transform.GetChild(i).GetComponent<Animator>().SetTrigger("Reset");
             }
         }
