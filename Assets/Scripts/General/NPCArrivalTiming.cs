@@ -11,6 +11,8 @@ public class NPCArrivalTiming : MonoBehaviour
     private static int curr_ind = 0;
     private static int num;
     public static GameObject chosenNPC;
+    public static int cust_timer = 0;
+    private static int timer = 0;
 
     private void Start()
     {
@@ -23,6 +25,14 @@ public class NPCArrivalTiming : MonoBehaviour
         NPCs = GameObject.Find("Customers");
         StartCoroutine(InitialSummon());
 
+    }
+
+    private void Update()
+    {
+        if(++timer % 240 == 0)
+        {
+            cust_timer++;
+        }
     }
 
     IEnumerator InitialSummon()
@@ -65,6 +75,7 @@ public class NPCArrivalTiming : MonoBehaviour
         chosenNPC = NPCs.transform.GetChild(num).gameObject;
         Animator anim = chosenNPC.GetComponent<Animator>();
         anim.SetTrigger("run");
+        cust_timer = 0;
 
     }
 

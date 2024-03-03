@@ -6,7 +6,7 @@ using UnityEngine;
 public class RandomOrder : MonoBehaviour
 {
     //meat, side, dessert, drink
-    GameObject[] order;
+    public static GameObject[] order;
     public Transform meat;
     public Transform side;
     public Transform treat;

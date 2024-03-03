@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class GameTimer : MonoBehaviour
 {
-    static int timer = 300;
+    public static int timer = 300;
     static int counter = 0;
 
     public TextMeshProUGUI time_text;

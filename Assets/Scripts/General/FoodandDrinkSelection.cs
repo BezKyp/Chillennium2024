@@ -12,7 +12,7 @@ public class FoodSelection : MonoBehaviour
     private static bool complete;
     GameObject[] items;
     GameObject trayItem;
-    private static GameObject[] trayItems;
+    public static GameObject[] trayItems;
     private static GameObject drinks;
     private static GameObject drinks_child;
     public GameObject up_left;
