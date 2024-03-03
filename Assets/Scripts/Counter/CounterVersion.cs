@@ -10,6 +10,9 @@ public class CounterVersion : MonoBehaviour
     public GameObject sideButton;
     public GameObject treatButton;
     public GameObject drinkButton;
+    public Animator sidesSign;
+    public Animator treatSign;
+    public Animator drinkSign;
     static int state = 0;
 
     void Start()
@@ -39,9 +42,8 @@ public class CounterVersion : MonoBehaviour
         if (state == 0)
         {
             animator.SetTrigger("MiddleFromRight");
-            //StartCoroutine(WaitAndReset());
+            sidesSign.SetTrigger("SlidesUp");
             sideButton.SetActive(true);
-            //state = 1;
         }
         else if (state == 1)
         {
@@ -58,9 +60,8 @@ public class CounterVersion : MonoBehaviour
         if (state == 1)
         {
             animator.SetTrigger("MiddleFromRight");
-            //StartCoroutine(WaitAndReset());
+            treatSign.SetTrigger("SlidesUp");
             treatButton.SetActive(true);
-            //state = 2;
         }
         else if (state == 2)
         {
@@ -76,9 +77,8 @@ public class CounterVersion : MonoBehaviour
         if (state == 2)
         {
             animator.SetTrigger("SlideIn");
-            //StartCoroutine(WaitAndReset());
+            drinkSign.SetTrigger("SlidesUp");
             drinkButton.SetActive(true);
-            //state = 3;
         }
 
     }
@@ -88,9 +88,7 @@ public class CounterVersion : MonoBehaviour
         if (state == 1)
         {
             animator.SetTrigger("SlideIn");
-
             meatButton.SetActive(true);
-            //state = 0;
         }
 
     }
@@ -100,15 +98,15 @@ public class CounterVersion : MonoBehaviour
         if (state == 1)
         {
             animator.SetTrigger("ToRight");
+            sidesSign.SetTrigger("SlidesDown");
             sideButton.SetActive(false);
             state = 0;
         }
         else if (state == 2)
         {
             animator.SetTrigger("MiddleFromLeft");
-            StartCoroutine(WaitAndReset());
+            //sidesSign.SetTrigger("SlidesUp");
             sideButton.SetActive(true);
-            //state = 1;
         }
 
     }
@@ -118,13 +116,13 @@ public class CounterVersion : MonoBehaviour
         if (state == 3)
         {
             animator.SetTrigger("MiddleFromLeft");
-            //StartCoroutine(WaitAndReset());
+            //treatSign.SetTrigger("SlidesUp");
             treatButton.SetActive(true);
-            //state = 2;
         }
         else if (state == 2)
         {
             animator.SetTrigger("ToRight");
+            treatSign.SetTrigger("SlidesDown");
             treatButton.SetActive(false);
             state = 1;
         }
@@ -136,6 +134,7 @@ public class CounterVersion : MonoBehaviour
         if (state == 3)
         {
             animator.SetTrigger("SlideOut");
+            drinkSign.SetTrigger("SlidesDown");
             drinkButton.SetActive(false);
             state = 2;
         }
