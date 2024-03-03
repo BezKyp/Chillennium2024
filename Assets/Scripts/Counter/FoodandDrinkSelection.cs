@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
+using static NPCArrivalTiming;
 public class FoodSelection : MonoBehaviour
 {
     public int itemNum;
     private static int items_remaining;
     private static bool drink_dispensed;
+    private static bool complete;
     GameObject[] items;
     GameObject trayItem;
     GameObject[] trayItems;
@@ -50,6 +52,7 @@ public class FoodSelection : MonoBehaviour
             }
             trayItems[loc] = trayItem;
             trayItem.SetActive(true);
+
             loc++;
             if (loc == 3 && drink_dispensed) GiveTray();
         }
@@ -93,7 +96,15 @@ public class FoodSelection : MonoBehaviour
         {
             trayItems[i].SetActive(false);
         }
+
         down.GetComponentInParent<Transform>().gameObject.SetActive(false);
+        StartCoroutine(Wait());
+    }
+
+    IEnumerator Wait()
+    {
+        yield return new WaitForSeconds(3f);
+        NPCArrivalTiming.SummonNPC();
     }
 
 }
