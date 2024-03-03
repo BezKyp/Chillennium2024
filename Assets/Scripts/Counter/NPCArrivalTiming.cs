@@ -20,7 +20,9 @@ public class NPCArrivalTiming : MonoBehaviour
             usedNums[i] = -1;
         }
 
+        NPCs = GameObject.Find("Customers");
         StartCoroutine(InitialSummon());
+
     }
 
     IEnumerator InitialSummon()
@@ -31,10 +33,11 @@ public class NPCArrivalTiming : MonoBehaviour
     public static void SummonNPC()
     {
         bool good = true;
+        if (curr_ind == numNPCs) curr_ind = 0;
         while(good)
         {
             num = UnityEngine.Random.Range(0, numNPCs);
-            for(int j = 0; j < usedNums.Length; j++)
+            for(int j = 0; j < curr_ind; j++)
             {
                 if (usedNums[j] == num)
                 {
@@ -46,6 +49,7 @@ public class NPCArrivalTiming : MonoBehaviour
             {
                 usedNums[curr_ind] = num;
                 curr_ind++;
+                good = false;
             }
             else good = true;
         }
@@ -55,4 +59,5 @@ public class NPCArrivalTiming : MonoBehaviour
         anim.SetTrigger("run");
 
     }
+
 }

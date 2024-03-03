@@ -11,7 +11,9 @@ public class RandomOrder : MonoBehaviour
     public Transform side;
     public Transform treat;
     public Transform drink;
-    public GameObject heldTray;
+    public GameObject tableTray;
+    public GameObject button;
+    public GameObject bubble;
     private Animator animator;
 
 
@@ -22,7 +24,7 @@ public class RandomOrder : MonoBehaviour
 
     public void CustomerArrive()
     {
-        animator.SetBool("run", true);
+        button.SetActive(false);
         StartCoroutine(Enter());
     }
     
@@ -35,7 +37,8 @@ public class RandomOrder : MonoBehaviour
         order[2] = treat.GetChild(UnityEngine.Random.Range(0, 3)).gameObject;
         order[3] = drink.gameObject; //drink.GetChild(UnityEngine.Random.Range(0, 3)).gameObject;
 
-        Debug.Log(order);
+        //Debug.Log(order);
+        Debug.Log("here in other indices");
 
         StartCoroutine(Wait());
     }
@@ -43,11 +46,8 @@ public class RandomOrder : MonoBehaviour
     
     IEnumerator Enter()
     {
-        yield return new WaitForSeconds(2.32f);
-        //heldTray.SetActive(false);
-        //animator.SetBool("run", false);
-        //yield return new WaitForSeconds(1f);
-        this.transform.Find("speech bubble").gameObject.SetActive(true);
+        Debug.Log("here in enter");
+
         yield return new WaitForSeconds(0.5f);
         OrderIndices();
     }
@@ -55,14 +55,15 @@ public class RandomOrder : MonoBehaviour
     {
         for (int i = 0; i < 3; i++)
         {
-            Debug.Log("made it");
             order[i].SetActive(true);
             yield return new WaitForSeconds(1.2f);
             order[i].SetActive(false);
             yield return new WaitForSeconds(0.25f);
         }
 
-        this.transform.Find("speech bubble").gameObject.SetActive(false);
+        animator.SetTrigger("StopTalk");
+        Debug.Log("here in wait");
+        button.SetActive(true);
     }
 
 

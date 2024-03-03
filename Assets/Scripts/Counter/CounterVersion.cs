@@ -105,7 +105,6 @@ public class CounterVersion : MonoBehaviour
         else if (state == 2)
         {
             animator.SetTrigger("MiddleFromLeft");
-            //sidesSign.SetTrigger("SlidesUp");
             sideButton.SetActive(true);
         }
 
@@ -116,7 +115,6 @@ public class CounterVersion : MonoBehaviour
         if (state == 3)
         {
             animator.SetTrigger("MiddleFromLeft");
-            //treatSign.SetTrigger("SlidesUp");
             treatButton.SetActive(true);
         }
         else if (state == 2)
