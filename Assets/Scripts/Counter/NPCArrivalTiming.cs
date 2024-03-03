@@ -5,11 +5,12 @@ using UnityEngine;
 
 public class NPCArrivalTiming : MonoBehaviour
 {
-    public static int numNPCs;
+    public static int numNPCs = 1;
     public static GameObject NPCs;
     private static int[] usedNums;
     private static int curr_ind = 0;
     private static int num;
+    public static GameObject chosenNPC;
 
     private void Start()
     {
@@ -18,6 +19,14 @@ public class NPCArrivalTiming : MonoBehaviour
         {
             usedNums[i] = -1;
         }
+
+        StartCoroutine(InitialSummon());
+    }
+
+    IEnumerator InitialSummon()
+    {
+        yield return new WaitForSeconds(2f);
+        SummonNPC();
     }
     public static void SummonNPC()
     {
@@ -41,7 +50,7 @@ public class NPCArrivalTiming : MonoBehaviour
             else good = true;
         }
 
-        GameObject chosenNPC = NPCs.transform.GetChild(num).gameObject;
+        chosenNPC = NPCs.transform.GetChild(num).gameObject;
         Animator anim = chosenNPC.GetComponent<Animator>();
         anim.SetTrigger("run");
 

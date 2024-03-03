@@ -103,6 +103,7 @@ public class FoodSelection : MonoBehaviour
 
     IEnumerator Wait()
     {
+        NPCArrivalTiming.chosenNPC.GetComponent<Animator>().SetTrigger("leave");
         yield return new WaitForSeconds(3f);
         NPCArrivalTiming.SummonNPC();
     }
