@@ -90,7 +90,7 @@ public class CounterVersion : MonoBehaviour
             animator.SetTrigger("SlideIn");
 
             meatButton.SetActive(true);
-            state = 0;
+            //state = 0;
         }
 
     }
@@ -101,14 +101,14 @@ public class CounterVersion : MonoBehaviour
         {
             animator.SetTrigger("ToRight");
             sideButton.SetActive(false);
-            //state = 0;
+            state = 0;
         }
         else if (state == 2)
         {
             animator.SetTrigger("MiddleFromLeft");
             StartCoroutine(WaitAndReset());
             sideButton.SetActive(true);
-            state = 1;
+            //state = 1;
         }
 
     }
@@ -117,16 +117,16 @@ public class CounterVersion : MonoBehaviour
     {
         if (state == 3)
         {
-            animator.SetTrigger("ToRight");
+            animator.SetTrigger("MiddleFromLeft");
             //StartCoroutine(WaitAndReset());
             treatButton.SetActive(true);
-            state = 2;
+            //state = 2;
         }
         else if (state == 2)
         {
-            animator.SetTrigger("MiddleFromLeft");
+            animator.SetTrigger("ToRight");
             treatButton.SetActive(false);
-            //state = 1;
+            state = 1;
         }
 
     }
@@ -137,7 +137,7 @@ public class CounterVersion : MonoBehaviour
         {
             animator.SetTrigger("SlideOut");
             drinkButton.SetActive(false);
-            //state = 2;
+            state = 2;
         }
 
     }
