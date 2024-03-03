@@ -5,9 +5,17 @@ using UnityEngine;
 public class StressLevel : MonoBehaviour
 {
     // Start is called before the first frame update
+
+    static int stressLevel;
+    static int customerLevel;
+    
+    public bool hasBox = false;
+
+
     void Start()
     {
-        
+        stressLevel = 20;
+        customerLevel = 50;
     }
 
     // Update is called once per frame

@@ -9,19 +9,36 @@ public class GeckoTextScript : MonoBehaviour
 
     public TextMeshProUGUI textBox;
 
-    public string[] emptyResponse;
+    public List<string> emptyResponse;
+    public List<string> foodResponse;
+
+    public GameObject gameVariables;
+    private StressLevel var_script;
     void Start()
     {
-        emptyResponse[0] = "Come back with something useful.";
-        emptyResponse[1] = "Scram! Get back to the customers.";
-        emptyResponse[2] = "Got any more slop for me to fry?";
-        emptyResponse[3] = "...";
-        emptyResponse[4] = "I miss my wife.";
+        emptyResponse = new List<string>();
+        foodResponse = new List<string>();
+        emptyResponse.Add("Come back with something useful.");
+        emptyResponse.Add("Scram! Get back to the customers.");
+        emptyResponse.Add("Got any more slop for me to fry?");
+        foodResponse.Add("Order Up.");
+        foodResponse.Add("I'll get this food cooked for ya.");
+        foodResponse.Add("Yum. Deep fried.");
+        var_script = gameVariables.GetComponent<StressLevel>();
     }
 
     // Update is called once per frame
-    public void changeText()
+    public void setText()
     {
-        textBox.text = emptyResponse[Random.Range(0,4)];
+
+        if (var_script.hasBox == false)
+        {
+            textBox.text = emptyResponse[Random.Range(0,3)];
+        }
+        else
+        {
+            textBox.text = foodResponse[Random.Range(0,3)];
+        }
+        
     }
 }
