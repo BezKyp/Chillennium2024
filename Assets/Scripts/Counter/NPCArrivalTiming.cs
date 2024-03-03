@@ -33,7 +33,16 @@ public class NPCArrivalTiming : MonoBehaviour
     public static void SummonNPC()
     {
         bool good = true;
-        if (curr_ind == numNPCs) curr_ind = 0;
+        if (curr_ind == numNPCs)
+        {
+            curr_ind = 0;
+            GameObject customers = GameObject.Find("Customers");
+            for(int i = 0; i < numNPCs; i++)
+            {
+                Debug.Log("in reset loop");
+                customers.transform.GetChild(i).GetComponent<Animator>().SetTrigger("Reset");
+            }
+        }
         while(good)
         {
             num = UnityEngine.Random.Range(0, numNPCs);
