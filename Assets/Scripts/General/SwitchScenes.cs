@@ -7,7 +7,7 @@ public class SwitchScenes : MonoBehaviour
 {
     public void SwitchToCounter()
     {
-        SceneManager.LoadScene("Counter");
+        SceneManager.LoadScene("CounterTesting");
     }
 
     public void SwitchToBackRoom()

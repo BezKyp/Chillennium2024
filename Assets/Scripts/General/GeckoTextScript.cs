@@ -31,14 +31,14 @@ public class GeckoTextScript : MonoBehaviour
     public void setText()
     {
 
-        if (var_script.hasBox == false)
+        if (var_script.getBox() == false)
         {
-            textBox.text = emptyResponse[Random.Range(0,3)];
+            textBox.text = emptyResponse[Random.Range(0, 3)];
         }
         else
         {
-            textBox.text = foodResponse[Random.Range(0,3)];
+            textBox.text = foodResponse[Random.Range(0, 3)];
         }
-        
+
     }
 }
