@@ -38,7 +38,6 @@ public class RandomOrder : MonoBehaviour
         order[3] = drink.GetChild(UnityEngine.Random.Range(0, 3)).gameObject;
 
         //Debug.Log(order);
-        Debug.Log("here in other indices");
 
         StartCoroutine(Wait());
     }
@@ -46,13 +45,13 @@ public class RandomOrder : MonoBehaviour
     
     IEnumerator Enter()
     {
-        Debug.Log("here in enter");
 
         yield return new WaitForSeconds(0.5f);
         OrderIndices();
     }
     IEnumerator Wait()
     {
+        animator.SetTrigger("Talk");
         for (int i = 0; i < 4; i++)
         {
             order[i].SetActive(true);
@@ -62,7 +61,7 @@ public class RandomOrder : MonoBehaviour
         }
 
         animator.SetTrigger("StopTalk");
-        Debug.Log("here in wait");
+        animator.SetTrigger("RemoveSpeech");
     }
 
 
