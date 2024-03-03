@@ -837,6 +837,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animplayer: {fileID: 9100000, guid: e4fcd76664350064aa7f917825dfcdaf, type: 2}
   animplayerBox: {fileID: 9100000, guid: 92d1a32cf042edc4d995329a130780ad, type: 2}
+  stressBar: {fileID: 0}
+  customerBar: {fileID: 0}
   player: {fileID: 5617570}
 --- !u!4 &225433710
 Transform:
@@ -1168,6 +1170,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animplayer: {fileID: 9100000, guid: e4fcd76664350064aa7f917825dfcdaf, type: 2}
   animplayerBox: {fileID: 9100000, guid: 92d1a32cf042edc4d995329a130780ad, type: 2}
+  stressBar: {fileID: 0}
+  customerBar: {fileID: 0}
   player: {fileID: 5617570}
 --- !u!1 &308254401
 GameObject:
@@ -3010,7 +3014,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 2, y: -14.3}
+  m_AnchoredPosition: {x: 0, y: -14.3}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1880609397
@@ -3033,7 +3037,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Back to Shift
+  m_text: Back to Work!
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 172c6768b6959664cbdcc30261be8cac, type: 2}
   m_sharedMaterial: {fileID: -4925139911153540842, guid: 172c6768b6959664cbdcc30261be8cac, type: 2}

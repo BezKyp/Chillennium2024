@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor.Animations;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class StressLevel : MonoBehaviour
 {
@@ -9,6 +10,8 @@ public class StressLevel : MonoBehaviour
 
     static int stressLevel = 20;
     static int customerLevel = 50;
+    int h_max = 128;
+    int w_max = 10;
 
     public static bool gameStart = false;
     public static bool hasBox = false;
@@ -17,6 +20,9 @@ public class StressLevel : MonoBehaviour
 
     public AnimatorController animplayer;
     public AnimatorController animplayerBox;
+
+    public Image stressBar;
+    public Image customerBar;
 
     public GameObject player;
 
@@ -54,6 +60,15 @@ public class StressLevel : MonoBehaviour
         player.GetComponent<Animator>().runtimeAnimatorController = animplayer;
     }
 
+    public void stressBarAdj()
+    {
+        float scale = ((float)stressLevel) / ((float)100);
+        float scale2 = ((float)customerLevel) / ((float)100);
+        stressBar.GetComponent<RectTransform>().sizeDelta = new Vector2(w_max, (scale * h_max));
+        customerBar.GetComponent<RectTransform>().sizeDelta = new Vector2(w_max, (scale2 * h_max));
+
+    }
+
     void Start()
     {
         if (hasBox)
@@ -65,6 +80,6 @@ public class StressLevel : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        stressBarAdj();
     }
 }
