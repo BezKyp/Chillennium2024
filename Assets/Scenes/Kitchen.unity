@@ -748,6 +748,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e9da259a22e2c14d8938fe9138d3a39, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameVariables: {fileID: 0}
 --- !u!61 &159398498
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -837,10 +838,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animplayer: {fileID: 9100000, guid: e4fcd76664350064aa7f917825dfcdaf, type: 2}
   animplayerBox: {fileID: 9100000, guid: 92d1a32cf042edc4d995329a130780ad, type: 2}
-  stressBar: {fileID: 0}
-  customerBar: {fileID: 0}
+  stressBar: {fileID: 1214429376}
+  customerBar: {fileID: 946806102}
   player: {fileID: 5617570}
-  sip: {fileID: 0}
 --- !u!4 &225433710
 Transform:
   m_ObjectHideFlags: 0
@@ -978,6 +978,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e9da259a22e2c14d8938fe9138d3a39, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameVariables: {fileID: 0}
 --- !u!114 &249061847
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1171,10 +1172,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animplayer: {fileID: 9100000, guid: e4fcd76664350064aa7f917825dfcdaf, type: 2}
   animplayerBox: {fileID: 9100000, guid: 92d1a32cf042edc4d995329a130780ad, type: 2}
-  stressBar: {fileID: 0}
-  customerBar: {fileID: 0}
+  stressBar: {fileID: 1214429376}
+  customerBar: {fileID: 946806102}
   player: {fileID: 5617570}
-  sip: {fileID: 0}
 --- !u!1 &308254401
 GameObject:
   m_ObjectHideFlags: 0
@@ -2142,12 +2142,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d8788e7e435d1e449d75e4b59d563c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animplayer: {fileID: 0}
-  animplayerBox: {fileID: 0}
+  animplayer: {fileID: 9100000, guid: e4fcd76664350064aa7f917825dfcdaf, type: 2}
+  animplayerBox: {fileID: 9100000, guid: 92d1a32cf042edc4d995329a130780ad, type: 2}
   stressBar: {fileID: 1214429376}
   customerBar: {fileID: 946806102}
   player: {fileID: 5617570}
-  sip: {fileID: 0}
 --- !u!1 &911687732
 GameObject:
   m_ObjectHideFlags: 0
@@ -2490,6 +2489,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e9da259a22e2c14d8938fe9138d3a39, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameVariables: {fileID: 0}
 --- !u!114 &1055231333
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2536,7 +2536,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1055231332}
         m_TargetAssemblyTypeName: SwitchScenes, Assembly-CSharp
-        m_MethodName: SwitchToCounter
+        m_MethodName: switchCounterGameStart
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3081,6 +3081,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e9da259a22e2c14d8938fe9138d3a39, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameVariables: {fileID: 0}
 --- !u!114 &1366172973
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3303,7 +3304,6 @@ GameObject:
   - component: {fileID: 1550079547}
   - component: {fileID: 1550079549}
   - component: {fileID: 1550079548}
-  - component: {fileID: 1550079550}
   m_Layer: 5
   m_Name: KitchenFloor
   m_TagString: Untagged
@@ -3368,27 +3368,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1550079546}
   m_CullTransparentMesh: 1
---- !u!95 &1550079550
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1550079546}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1683568820
 GameObject:
   m_ObjectHideFlags: 0

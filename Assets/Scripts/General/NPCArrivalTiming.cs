@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
+using static StressLevel;
+
 public class NPCArrivalTiming : MonoBehaviour
 {
     public static int numNPCs = 4;
@@ -29,7 +31,7 @@ public class NPCArrivalTiming : MonoBehaviour
 
     private void Update()
     {
-        if(++timer % 240 == 0)
+        if(++timer % 240 == 0 && StressLevel.gameStart == true)
         {
             cust_timer++;
         }

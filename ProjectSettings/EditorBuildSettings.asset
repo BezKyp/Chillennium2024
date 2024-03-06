@@ -20,5 +20,11 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/StartMenu.unity
     guid: 4b80aa6264248b849afd17e704245e4e
+  - enabled: 1
+    path: Assets/Scenes/CounterTesting.unity
+    guid: 8a2bb405fdb911847b51afe324870c9a
+  - enabled: 1
+    path: Assets/Scenes/GAMEOVER.unity
+    guid: b6ef0fd8a18c06f4da5b16ab417b96f5
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: cb3f6a06409217944914f22102051484, type: 2}

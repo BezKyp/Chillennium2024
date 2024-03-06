@@ -37,8 +37,17 @@ public class StressLevel : MonoBehaviour
 
     public GameObject player;
 
-    public AudioClip sip;
+    //public AudioSource sip;
 
+    public bool getGameStatus()
+    {
+        return gameStart;
+    }
+
+    public void setGameStatus()
+    {
+        gameStart = true;
+    }
 
     public void setBoxTrue()
     {
@@ -59,7 +68,7 @@ public class StressLevel : MonoBehaviour
     public void setBoxDes() { lastBox = 2; }
     public void setBoxSoda() { lastBox = 3; }
 
-    public void drinkWater() { stressLevel -= 5;}
+    public void drinkWater() { stressLevel -= 5; }
     public void lookPoster() { stressLevel -= 5; }
     public void sit() { stressLevel -= 5; }
 
@@ -92,9 +101,14 @@ public class StressLevel : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (NPCArrivalTiming.cust_timer % 3 == 0 && NPCArrivalTiming.cust_timer != 0) stressLevel++;
-        if (GameTimer.timer % 3 == 0 && SceneManager.GetActiveScene().name == "BackRoom") stressLevel--;
-        if (GameTimer.timer % 8 == 0 && SceneManager.GetActiveScene().name == "CounterTesting") stressLevel++;
+        if (hasBox)
+        {
+            changeAnimBox();
+        }
+
+        //if ((gameStart == true) && (NPCArrivalTiming.cust_timer % 3 == 0 && NPCArrivalTiming.cust_timer != 0)) stressLevel++;
+        if ((gameStart == true) && (GameTimer.timer % 3 == 0 && SceneManager.GetActiveScene().name == "BackRoom")) stressLevel--;
+        if ((gameStart == true) && (GameTimer.timer % 8 == 0 && SceneManager.GetActiveScene().name == "CounterTesting")) stressLevel++;
 
         for (int i = 0; i < 4; i++) {
             //if (RandomOrder.order[0] == FoodSelection.trayItems[i]) meat = true;
@@ -112,7 +126,7 @@ public class StressLevel : MonoBehaviour
         treat = true;
         meat = true;
 
-    stressBarAdj();
-        if (stressLevel >= 100 || customerLevel <= 0) SceneManager.LoadScene("GAMEOVER");
+        stressBarAdj();
+        if (stressLevel >= 100 || customerLevel <= 0 || GameTimer.timer == 0) SceneManager.LoadScene("GAMEOVER");
     }
 }
