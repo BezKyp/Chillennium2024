@@ -12,14 +12,14 @@ EditorBuildSettings:
     path: Assets/Scenes/Counter.unity
     guid: 06987d97ca95a8047844b106bcc35b72
   - enabled: 1
+    path: Assets/Scenes/StartMenu.unity
+    guid: 4b80aa6264248b849afd17e704245e4e
+  - enabled: 1
     path: Assets/Scenes/BackRoom.unity
     guid: 2c3e5c1f97a2db845a0bd8b19c2377c0
   - enabled: 1
     path: Assets/Scenes/Kitchen.unity
     guid: 9e3e81c086e009540b8f9c36baacd777
-  - enabled: 1
-    path: Assets/Scenes/StartMenu.unity
-    guid: 4b80aa6264248b849afd17e704245e4e
   - enabled: 1
     path: Assets/Scenes/CounterTesting.unity
     guid: 8a2bb405fdb911847b51afe324870c9a
